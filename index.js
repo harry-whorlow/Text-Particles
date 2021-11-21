@@ -6,8 +6,8 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let particleArray = [];
-let adjustX = 10;
-let adjustY = 10;
+let adjustX = 33;
+let adjustY = 30;
 
 const mouse = {
     x: null,
@@ -22,8 +22,8 @@ window.addEventListener("mousemove", function (event) {
 
 ctx.fillStyle = "white";
 ctx.font = "30px Verdana";
-ctx.fillText("Test", 0, 30);
-const textCoordinates = ctx.getImageData(0, 0, 100, 100);
+ctx.fillText("PARTICLES", 0, 30);
+const textCoordinates = ctx.getImageData(0, 0, 300, 100);
 
 class Particle {
     constructor(x, y) {
@@ -85,9 +85,7 @@ function init() {
                 let positionX = x + adjustX;
                 let positionY = y + adjustY;
 
-                particleArray.push(
-                    new Particle(positionX * 10, positionY * 10)
-                );
+                particleArray.push(new Particle(positionX * 8, positionY * 8));
             }
         }
     }
@@ -117,7 +115,7 @@ function connect() {
             let dy = particleArray[a].y - particleArray[b].y;
             let distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 50) {
+            if (distance < 40) {
                 opacityValue = 1 - distance / 50;
                 ctx.strokeStyle = "rgba(255,255,255," + opacityValue + ")";
 
