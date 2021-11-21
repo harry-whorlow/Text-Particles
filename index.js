@@ -57,8 +57,8 @@ class Particle {
         let directionY = forceDirectionY * force * this.density;
 
         if (distance < mouse.radius) {
-            this.x -= forceDirectionX;
-            this.y -= forceDirectionY;
+            this.x -= directionX;
+            this.y -= directionY;
         } else {
             if (this.x !== this.baseX) {
                 let dx = this.x - this.baseX;
